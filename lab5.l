@@ -26,6 +26,14 @@ IDENTIFIER	[_A-Za-z][_A-Za-z0-9]*
 "int" 	 {
 			return INT;
 		 }
+
+ "manhattan_distance" {
+ return MANH;
+ }
+ 
+"print" {
+ return PRINT;
+ }
 		 
 {IDENTIFIER} {
 				SymbolInfo ob(string(yytext), "IDENTIFIER");
@@ -40,6 +48,7 @@ IDENTIFIER	[_A-Za-z][_A-Za-z0-9]*
 			Tb.INSERT(string(yytext),"NUMBER");
 			return NUMBER;
 		 }
+"," {return COMMA;}
 		 
 "+" 	 {
 		    return ADD;
@@ -91,6 +100,7 @@ IDENTIFIER	[_A-Za-z][_A-Za-z0-9]*
 "||"	 {
 			return LOR;
 		 }
+		 
 
 .        {
 			char msg[25];
